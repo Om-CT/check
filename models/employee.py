@@ -190,8 +190,8 @@ class WizardMarkDone(models.TransientModel):
     note = fields.Text(string="Note")
 
     @api.model
-    def default_get(self, fields):
-        res = super(WizardMarkDone, self).default_get(fields)
+    def default_get(self, default_fields):
+        res = super(WizardMarkDone, self).default_get(default_fields)
         employee_id = self.env.context.get('default_employee_id')
         if employee_id:
             employee = self.env['employee.management'].browse(employee_id)
